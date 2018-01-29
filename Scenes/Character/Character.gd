@@ -21,9 +21,6 @@ func _ready():
 func play_walk_animation():
 	if input_direction == last_move_direction:
 		return
-	if not input_direction:
-		return
-
 	if not input_direction.y:
 		if input_direction.x == -1:
 			$AnimationPlayer.play('walk_left')
@@ -37,12 +34,13 @@ func play_walk_animation():
 
 func _physics_process(delta):
 	if input_direction:
-		last_move_direction = input_direction
 		if speed != max_speed:
 			speed = max_speed
+		play_walk_animation()
+		last_move_direction = input_direction
 	else:
 		speed = 0.0
-		$AnimationPlayer.play('SETUP')
+		$AnimationPlayer.stop()
 		if last_move_direction.x == -1:
 			$Pivot/Body.frame = FRAME_LEFT
 		elif last_move_direction.x == 1:
@@ -51,6 +49,7 @@ func _physics_process(delta):
 			$Pivot/Body.frame = FRAME_UP
 		elif last_move_direction.y == 1:
 			$Pivot/Body.frame == FRAME_DOWN
+		last_move_direction = Vector2()
 		return
 	
 	# Normalizing even though in 4 dir it's not need, but just in case

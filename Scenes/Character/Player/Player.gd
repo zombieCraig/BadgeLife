@@ -20,5 +20,3 @@ func _physics_process(delta):
 
 	# Run
 	max_speed = MAX_RUN_SEED if Input.is_action_pressed('run') else MAX_WALK_SPEED
-	
-	play_walk_animation()
