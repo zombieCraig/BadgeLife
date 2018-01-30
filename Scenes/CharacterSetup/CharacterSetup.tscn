@@ -1,0 +1,275 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/CharacterSetup/CharacterSetup.gd" type="Script" id=1]
+[ext_resource path="res://ArtSketeches/background-1076263_960_720.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/CharacterSetup/HatColor.shader" type="Shader" id=3]
+[ext_resource path="res://ArtSketeches/CharProfileHat.png" type="Texture" id=4]
+[ext_resource path="res://ArtSketeches/CharProfile.png" type="Texture" id=5]
+[ext_resource path="res://ArtSketeches/CharProfileHatShading.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/RammettoOne-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/u_color_key = Color( 1, 0, 0.803922, 1 )
+shader_param/u_replacement_color = Color( 0.40625, 0.40625, 0.40625, 1 )
+shader_param/u_tolerance = null
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/u_color_key = Color( 1, 0, 0.803922, 1 )
+shader_param/u_replacement_color = null
+shader_param/u_tolerance = 0.5
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0, 0, 0, 0.585647 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 19
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font" ]
+
+[node name="CharacterSetup" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+hat_color = null
+
+[node name="BG" type="TextureRect" parent="." index="0"]
+
+modulate = Color( 0.242188, 0.242188, 0.242188, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 961.0
+margin_bottom = 534.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CharProfileHat" type="Sprite" parent="." index="1"]
+
+material = SubResource( 1 )
+position = Vector2( 504.128, 340.18 )
+scale = Vector2( 1.26902, 1.26902 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Material" ]
+
+[node name="CharProfile" type="Sprite" parent="CharProfileHat" index="0"]
+
+material = SubResource( 2 )
+position = Vector2( -0.107483, 0.465973 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Material" ]
+
+[node name="CharProfileHatShading" type="Sprite" parent="CharProfileHat/CharProfile" index="0"]
+
+position = Vector2( 1.31927, -0.596313 )
+texture = ExtResource( 6 )
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 959.0
+margin_bottom = 540.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Panel" type="Panel" parent="CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 328.0
+margin_top = 224.0
+margin_right = 695.0
+margin_bottom = 379.0
+rect_min_size = Vector2( 367, 155 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 3 )
+_sections_unfolded = [ "Visibility", "custom_styles" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 335.0
+margin_top = 234.0
+margin_right = 687.0
+margin_bottom = 369.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 352.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Enter your Login Name"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="UserName" type="TextEdit" parent="CenterContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 352.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+custom_colors/caret_color = Color( 0.0516361, 0.785156, 0.00920105, 1 )
+custom_colors/font_color = Color( 0.0952976, 0.601562, 0.00704956, 1 )
+text = ""
+readonly = false
+highlight_current_line = false
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = true
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = true
+caret_blink = true
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
+_sections_unfolded = [ "Caret", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 101.0
+margin_right = 352.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="LoginBtn" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 143.0
+margin_right = 209.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Login"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+
