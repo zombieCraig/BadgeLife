@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/CharacterSetup/CharacterSetup.gd" type="Script" id=1]
 [ext_resource path="res://ArtSketeches/background-1076263_960_720.jpg" type="Texture" id=2]
@@ -13,7 +13,7 @@
 render_priority = 0
 shader = ExtResource( 3 )
 shader_param/u_color_key = Color( 1, 0, 0.803922, 1 )
-shader_param/u_replacement_color = Color( 0.40625, 0.40625, 0.40625, 1 )
+shader_param/u_replacement_color = Color( 0, 0, 1, 1 )
 shader_param/u_tolerance = null
 _sections_unfolded = [ "shader_param" ]
 
@@ -78,10 +78,38 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font" ]
 
+[sub_resource type="StyleBoxFlat" id=7]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0, 0, 0, 1 )
+draw_center = true
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.00585938, 0.75, 0, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width" ]
+
 [node name="CharacterSetup" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-hat_color = null
 
 [node name="BG" type="TextureRect" parent="." index="0"]
 
@@ -124,6 +152,7 @@ texture = ExtResource( 6 )
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -271,5 +300,224 @@ text = "Login"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="TestPanel" type="Panel" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 23.0
+margin_right = 306.0
+margin_bottom = 171.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 7 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="Label" type="Label" parent="TestPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 106.0
+margin_top = 10.0
+margin_right = 163.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Specialty"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="TestPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 101.0
+margin_top = 61.0
+margin_right = 167.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Alignment"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Status" type="Label" parent="TestPanel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 130.0
+margin_right = 274.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SpecialtySlider" type="HSlider" parent="TestPanel" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 36.0
+margin_right = 263.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+page = 0.0
+value = 0.5
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="AlignSlider" type="HSlider" parent="TestPanel" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 87.0
+margin_right = 263.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+page = 0.0
+value = 0.5
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Label3" type="Label" parent="TestPanel" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 17.0
+margin_right = 48.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Attack"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="TestPanel" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 219.0
+margin_top = 17.0
+margin_right = 272.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Defense"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label5" type="Label" parent="TestPanel" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 71.0
+margin_right = 47.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Evil"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label6" type="Label" parent="TestPanel" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 233.0
+margin_top = 73.0
+margin_right = 273.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Good"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="value_changed" from="TestPanel/SpecialtySlider" to="." method="_on_SpecialtySlider_value_changed"]
+
+[connection signal="value_changed" from="TestPanel/AlignSlider" to="." method="_on_AlignSlider_value_changed"]
 
 

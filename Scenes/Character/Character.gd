@@ -15,6 +15,30 @@ var velocity = Vector2()
 var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 
+# Base Stats
+var guile = 1
+var mental = 1
+var power = 1
+
+# Defense
+# Ability to discern surroundings
+# Detect lies
+# Detect alignment of NPCs
+func get_awareness():
+	return guile + mental
+
+# Utility
+# Ability to Lie
+# Initiative / turn frequency in Battle
+func get_cunning():
+	return guile + power
+
+# Offence
+# Use badge powers
+# How much damage you do with basic attacks
+func get_potency():
+	return mental + power
+
 func _ready():
 	pass
 
