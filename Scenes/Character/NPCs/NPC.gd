@@ -1,8 +1,12 @@
 extends "res://Scenes/Character/Character.gd"
 
+const IDLE_WALK_TIME = 0.4
+
 export var random_mob = false
 export var idle_movement = false
 var busy = false # If the NPC is busy with an action (like talking)
+var walking = false
+var walk_direction = Vector2()
 
 # Not really standard but not too crazy.  Decent for clothing options
 var standard_colors = [ Color(.06, .25, .21), Color(.22, .52, .90), Color(.18, .80, .42),
@@ -54,6 +58,22 @@ func face_random_dir():
 	else:
 		last_move_direction = Vector2(0, 1)
 
+func walk(walk_time):
+	max_speed = MAX_WALK_SPEED
+	walking = true
+	var dir = randi() % 4
+	if dir == 0:
+		walk_direction = Vector2(-1, 0)
+	elif dir == 1:
+		walk_direction = Vector2(1, 0)
+	elif dir == 2:
+		walk_direction = Vector2(0, -1)
+	else:
+		walk_direction = Vector2(0, 1)
+	$WalkTimer.set("wait_time", walk_time)
+	$WalkTimer.start()
+	input_direction = walk_direction
+
 func set_idle_timer():
 	$IdleTimer.set("wait_time", 1 + randf() * 2)
 	$IdleTimer.start()
@@ -69,5 +89,13 @@ func _ready():
 
 func _on_IdleTimer_timeout():
 	if not busy:
-		face_random_dir()
+		if not walking:
+			if randi() % 4 == 0:
+				walk(IDLE_WALK_TIME)
+			else:
+				face_random_dir()
 	set_idle_timer()
+
+func _on_WalkTimer_timeout():
+	walking = false
+	input_direction = Vector2()
