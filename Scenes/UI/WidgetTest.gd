@@ -106,3 +106,6 @@ func _on_SubActionMenu_left_pressed():
 		$Tooltip.panel_hide()
 	$SubActionMenu.destroy_menu()
 	$ActionMenu.set_focus_by_name(action_selected)
+
+func _on_ToastBtn_pressed():
+	$Dialog.toast_msg("Go away", 1.0)

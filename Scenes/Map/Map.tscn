@@ -4,15 +4,19 @@
 [ext_resource path="res://Scenes/Character/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Character/NPCs/NPC.tscn" type="PackedScene" id=3]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" index="0"]
 
 [node name="BL_TestMap" parent="." index="0" instance=ExtResource( 1 )]
 
-[node name="Player" parent="BL_TestMap" index="1" instance=ExtResource( 2 )]
+[node name="YSort" type="YSort" parent="BL_TestMap" index="1"]
+
+sort_enabled = true
+
+[node name="Player" parent="BL_TestMap/YSort" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 826.37, 461.373 )
 
-[node name="Camera2D" type="Camera2D" parent="BL_TestMap/Player" index="3"]
+[node name="Camera2D" type="Camera2D" parent="BL_TestMap/YSort/Player" index="3"]
 
 position = Vector2( -4.22595, -10.3653 )
 anchor_mode = 1
@@ -38,8 +42,24 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="NPC" parent="BL_TestMap" index="3" instance=ExtResource( 3 )]
+[node name="NPC" parent="BL_TestMap/YSort" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 1168.97, 448.952 )
+random_mob = true
+
+[node name="NPC2" parent="BL_TestMap/YSort" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1114.68, 322.438 )
+random_mob = true
+
+[node name="NPC3" parent="BL_TestMap/YSort" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1215.51, 355.679 )
+random_mob = true
+
+[node name="NPC4" parent="BL_TestMap/YSort" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 991.687, 442.106 )
+face_dir = 0
 
 

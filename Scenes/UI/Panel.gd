@@ -1,6 +1,6 @@
 extends NinePatchRect
 
-const ANIM_SPEED = 0.3
+export var animation_speed = 0.3
 var animate = true
 
 var panel_size = Vector2(162, 66)
@@ -10,14 +10,14 @@ var panel_animating = false
 var closing = false
 
 func panel_show():
-	$Tween.interpolate_property(self, "rect_size", Vector2(panel_size.x, 20), panel_size, ANIM_SPEED, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
+	$Tween.interpolate_property(self, "rect_size", Vector2(panel_size.x, 20), panel_size, animation_speed, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
 	$Tween.start()
 	show()
 	panel_animating = true
 	closing = false
 
 func panel_hide():
-	$Tween.interpolate_property(self, "rect_size", panel_size, Vector2(panel_size.x, 20), ANIM_SPEED, Tween.TRANS_ELASTIC, Tween.EASE_IN)
+	$Tween.interpolate_property(self, "rect_size", panel_size, Vector2(panel_size.x, 20), animation_speed, Tween.TRANS_ELASTIC, Tween.EASE_IN)
 	$Tween.start()
 	panel_animating = true
 	closing = true

@@ -6,4 +6,5 @@ Attribution to Stephen "Redshrike" Challener and a link to www.OpenGameArt.org F
 Copyright/Attribution Notice: 
 Stephen Challener (Redshrike) and Zi Ye, hosted by OpenGameArt.org
 
-
+Characters:
+https://github.com/makrohn/Universal-LPC-spritesheet

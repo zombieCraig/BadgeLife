@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Character/Character.gd" type="Script" id=1]
-[ext_resource path="res://ArtSketeches/mage walking poses sheet copy.png" type="Texture" id=2]
+[ext_resource path="res://ArtSketeches/Character/Body/male/tanned2.png" type="Texture" id=2]
+[ext_resource path="res://ArtSketeches/Character/Feet/male_shoes.png" type="Texture" id=3]
+[ext_resource path="res://ArtSketeches/Character/Legs/pants.png" type="Texture" id=4]
+[ext_resource path="res://ArtSketeches/Character/Torso/male_shirt.png" type="Texture" id=5]
+[ext_resource path="res://ArtSketeches/Character/Hair/plain.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 
-resource_name = "SETUP"
+resource_name = "IDLE"
 length = 0.01
 loop = false
 step = 0.1
@@ -19,7 +24,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 27 ]
+"values": [ 143 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Body/Hair:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 143 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -38,7 +55,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 18, 26 ]
+"values": [ 131, 138 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -57,7 +74,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 9, 17 ]
+"values": [ 118, 125 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -76,7 +93,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 27, 35 ]
+"values": [ 144, 151 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -95,7 +112,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 8 ]
+"values": [ 105, 112 ]
 }
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -112,6 +129,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+face_dir = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -120,7 +138,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/SETUP = SubResource( 1 )
+anims/IDLE = SubResource( 1 )
 anims/walk_down = SubResource( 2 )
 anims/walk_left = SubResource( 3 )
 anims/walk_right = SubResource( 4 )
@@ -138,9 +156,52 @@ shape = SubResource( 6 )
 
 position = Vector2( 0, -22 )
 texture = ExtResource( 2 )
-vframes = 4
-hframes = 9
-frame = 27
+vframes = 21
+hframes = 13
+frame = 143
 _sections_unfolded = [ "Animation" ]
+
+[node name="Feet" type="Sprite" parent="Pivot/Body" index="0"]
+
+texture = ExtResource( 3 )
+vframes = 21
+hframes = 13
+frame = 143
+_sections_unfolded = [ "Animation" ]
+
+[node name="Legs" type="Sprite" parent="Pivot/Body" index="1"]
+
+texture = ExtResource( 4 )
+vframes = 21
+hframes = 13
+frame = 143
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="Torso" type="Sprite" parent="Pivot/Body" index="2"]
+
+texture = ExtResource( 5 )
+vframes = 21
+hframes = 13
+frame = 143
+_sections_unfolded = [ "Animation" ]
+
+[node name="Hair" type="Sprite" parent="Pivot/Body" index="3"]
+
+modulate = Color( 0.773438, 0.485145, 0.178253, 1 )
+texture = ExtResource( 6 )
+vframes = 21
+hframes = 13
+frame = 143
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Dialog" parent="." index="3" instance=ExtResource( 7 )]
+
+visible = false
+margin_left = -92.0
+margin_top = -110.0
+margin_right = 94.0
+margin_bottom = -59.0
+
+[connection signal="frame_changed" from="Pivot/Body" to="." method="_on_Body_frame_changed"]
 
 

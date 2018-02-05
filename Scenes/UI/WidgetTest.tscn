@@ -111,7 +111,31 @@ text = "Show Dialog"
 flat = false
 align = 1
 
-[node name="Dialog" parent="." index="4" instance=ExtResource( 2 )]
+[node name="ToastBtn" type="Button" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 306.0
+margin_top = 271.0
+margin_right = 382.0
+margin_bottom = 291.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Toast Msg"
+flat = false
+align = 1
+
+[node name="Dialog" parent="." index="5" instance=ExtResource( 2 )]
 
 visible = false
 margin_left = 456.0
@@ -119,7 +143,7 @@ margin_top = 69.0
 margin_right = 806.0
 margin_bottom = 141.0
 
-[node name="Char1" type="Sprite" parent="." index="5"]
+[node name="Char1" type="Sprite" parent="." index="6"]
 
 visible = false
 position = Vector2( 415.185, 379.192 )
@@ -137,7 +161,7 @@ rotation = 3.14159
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Char2" type="Sprite" parent="." index="6"]
+[node name="Char2" type="Sprite" parent="." index="7"]
 
 visible = false
 position = Vector2( 413.38, 447.782 )
@@ -155,7 +179,7 @@ rotation = -3.14159
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MenuTestBtn" type="Button" parent="." index="7"]
+[node name="MenuTestBtn" type="Button" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -179,7 +203,7 @@ text = "Test Menus"
 flat = false
 align = 1
 
-[node name="StopMenuTestBtn" type="Button" parent="." index="8"]
+[node name="StopMenuTestBtn" type="Button" parent="." index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -203,7 +227,7 @@ text = "Stop Menu Testing"
 flat = false
 align = 1
 
-[node name="CharSelect" parent="." index="9" instance=ExtResource( 5 )]
+[node name="CharSelect" parent="." index="10" instance=ExtResource( 5 )]
 
 visible = false
 margin_left = 382.0
@@ -211,14 +235,14 @@ margin_top = 484.0
 margin_right = 515.0
 margin_bottom = 596.0
 
-[node name="ActionMenu" parent="." index="10" instance=ExtResource( 5 )]
+[node name="ActionMenu" parent="." index="11" instance=ExtResource( 5 )]
 
 visible = false
 margin_top = 441.0
 margin_right = 133.0
 margin_bottom = 594.0
 
-[node name="SubActionMenu" parent="." index="11" instance=ExtResource( 5 )]
+[node name="SubActionMenu" parent="." index="12" instance=ExtResource( 5 )]
 
 visible = false
 margin_left = 129.0
@@ -226,7 +250,7 @@ margin_top = 337.0
 margin_right = 318.0
 margin_bottom = 523.0
 
-[node name="Tooltip" parent="." index="12" instance=ExtResource( 2 )]
+[node name="Tooltip" parent="." index="13" instance=ExtResource( 2 )]
 
 visible = false
 margin_left = 106.0
@@ -238,6 +262,8 @@ disable_input = true
 [connection signal="pressed" from="LoremBtn" to="." method="_on_LoremBtn_pressed"]
 
 [connection signal="pressed" from="ShowDialogBtn" to="." method="_on_ShowDialogBtn_pressed"]
+
+[connection signal="pressed" from="ToastBtn" to="." method="_on_ToastBtn_pressed"]
 
 [connection signal="pressed" from="MenuTestBtn" to="." method="_on_MenuTestBtn_pressed"]
 

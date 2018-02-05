@@ -11,6 +11,17 @@ var buf_index = 0
 var buffer_beginning = true
 var buffer_paused = false
 
+# A toast message is a short message with input disabled.  It is displayed for a
+# short time then hides.  Unlick set_text this will also animate the show and hide
+# of the panel
+func toast_msg(msg, timeout):
+	disable_input = true
+	if not visible:
+		panel_show()
+	set_text(msg)
+	$Timer.set("wait_time", timeout)
+	$Timer.start()
+
 # Parses the buffer for substitutions
 func parse_buf():
 	buf = buf.replace("\n", "\n ") # Add a space for 'pause' parsing
@@ -134,4 +145,7 @@ func _process(delta):
 
 func _ready():
 	reset()
-	
+
+func _on_Timer_timeout():
+	if visible:
+		panel_hide()
