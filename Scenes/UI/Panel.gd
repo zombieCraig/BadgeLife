@@ -26,6 +26,7 @@ func _ready():
 	panel_size = rect_size
 
 func _on_Tween_tween_completed( object, key ):
+	$Tween.remove_all()
 	panel_animating = false
 	if closing:
 		hide()

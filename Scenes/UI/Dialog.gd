@@ -127,13 +127,17 @@ func reset():
 	$MarginContainer/DialogArrow.hide()
 
 func _input(event):
+	if not visible:
+		return
 	if not disable_input:
 		if buf.length() > 0:
 			if buffer_paused:
 				if Input.is_action_pressed("interact"):
 					next_buffer_page()
+					accept_event()
 			if buffer_complete and not panel_animating:
 				if Input.is_action_pressed("interact"):
+					accept_event()
 					emit_signal("dialog_completed")
 					panel_hide()
 

@@ -12,6 +12,9 @@ var walk_direction = Vector2()
 var standard_colors = [ Color(.06, .25, .21), Color(.22, .52, .90), Color(.18, .80, .42),
 	Color(.70, .79, .06), Color(.46, .74, .67), Color(.18, .35, .31) ]
 
+# Some random generic sayings
+var random_speech = [ "Hey there", "What's up?", "So what's going on?", "Do I know you?", "This is my first con" ]
+
 func _random_gender():
 	base_gender = genders[randi() % genders.size() ]
 
@@ -74,6 +77,16 @@ func walk(walk_time):
 	$WalkTimer.start()
 	input_direction = walk_direction
 
+# Function for interacting with this NPC
+func interact():
+	if $Dialog.visible:
+		return
+	busy = true
+	var msg = random_speech[randi() % random_speech.size() ]
+	$Dialog.set_text(msg)
+	$Dialog.panel_show()
+	global.block_player_input = true
+
 func set_idle_timer():
 	$IdleTimer.set("wait_time", 1 + randf() * 2)
 	$IdleTimer.start()
@@ -99,3 +112,7 @@ func _on_IdleTimer_timeout():
 func _on_WalkTimer_timeout():
 	walking = false
 	input_direction = Vector2()
+
+func _on_Dialog_dialog_completed():
+	global.block_player_input = false
+	busy = false
