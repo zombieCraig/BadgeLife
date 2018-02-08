@@ -14,7 +14,7 @@ idle_movement = false
 
 editor/display_folded = true
 
-[node name="Body" parent="Pivot" index="0"]
+[node name="Body" parent="Pivot" index="1"]
 
 texture = ExtResource( 3 )
 

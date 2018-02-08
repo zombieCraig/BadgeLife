@@ -99,6 +99,7 @@ func _ready():
 		idle_movement = true
 	if idle_movement:
 		set_idle_timer()
+		add_to_group('bumpable')
 
 func _on_IdleTimer_timeout():
 	if not busy:

@@ -14,7 +14,7 @@ var buffer_paused = false
 # A toast message is a short message with input disabled.  It is displayed for a
 # short time then hides.  Unlick set_text this will also animate the show and hide
 # of the panel
-func toast_msg(msg, timeout):
+func toast_msg(msg, timeout=1.0):
 	disable_input = true
 	if not visible:
 		panel_show()

@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Character/Character.gd" type="Script" id=1]
-[ext_resource path="res://ArtSketeches/Character/Body/male/tanned2.png" type="Texture" id=2]
-[ext_resource path="res://ArtSketeches/Character/Feet/male_shoes.png" type="Texture" id=3]
-[ext_resource path="res://ArtSketeches/Character/Legs/pants.png" type="Texture" id=4]
-[ext_resource path="res://ArtSketeches/Character/Torso/male_shirt.png" type="Texture" id=5]
-[ext_resource path="res://ArtSketeches/Character/Hair/plain.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ArtSketeches/Character/shadow.png" type="Texture" id=2]
+[ext_resource path="res://ArtSketeches/Character/Body/male/tanned2.png" type="Texture" id=3]
+[ext_resource path="res://ArtSketeches/Character/Feet/male_shoes.png" type="Texture" id=4]
+[ext_resource path="res://ArtSketeches/Character/Legs/pants.png" type="Texture" id=5]
+[ext_resource path="res://ArtSketeches/Character/Torso/male_shirt.png" type="Texture" id=6]
+[ext_resource path="res://ArtSketeches/Character/Hair/plain.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -152,10 +153,17 @@ shape = SubResource( 6 )
 
 [node name="Pivot" type="Position2D" parent="." index="2"]
 
-[node name="Body" type="Sprite" parent="Pivot" index="0"]
+[node name="Shadow" type="Sprite" parent="Pivot" index="0"]
+
+modulate = Color( 1, 1, 1, 0.265176 )
+position = Vector2( 0, 6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Body" type="Sprite" parent="Pivot" index="1"]
 
 position = Vector2( 0, -22 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 vframes = 21
 hframes = 13
 frame = 143
@@ -163,7 +171,7 @@ _sections_unfolded = [ "Animation" ]
 
 [node name="Feet" type="Sprite" parent="Pivot/Body" index="0"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 21
 hframes = 13
 frame = 143
@@ -171,7 +179,7 @@ _sections_unfolded = [ "Animation" ]
 
 [node name="Legs" type="Sprite" parent="Pivot/Body" index="1"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 vframes = 21
 hframes = 13
 frame = 143
@@ -179,7 +187,7 @@ _sections_unfolded = [ "Animation", "Visibility" ]
 
 [node name="Torso" type="Sprite" parent="Pivot/Body" index="2"]
 
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 vframes = 21
 hframes = 13
 frame = 143
@@ -188,13 +196,13 @@ _sections_unfolded = [ "Animation" ]
 [node name="Hair" type="Sprite" parent="Pivot/Body" index="3"]
 
 modulate = Color( 0.773438, 0.485145, 0.178253, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 vframes = 21
 hframes = 13
 frame = 143
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Dialog" parent="." index="3" instance=ExtResource( 7 )]
+[node name="Dialog" parent="." index="3" instance=ExtResource( 8 )]
 
 visible = false
 margin_left = -92.0
@@ -202,6 +210,15 @@ margin_top = -110.0
 margin_right = 94.0
 margin_bottom = -59.0
 
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
 [connection signal="frame_changed" from="Pivot/Body" to="." method="_on_Body_frame_changed"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

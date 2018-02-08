@@ -8,14 +8,33 @@
 
 script = ExtResource( 2 )
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+[node name="LeftCast" type="RayCast2D" parent="." index="2"]
 
+position = Vector2( 0, -14 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 50, 0 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="CenterCast" type="RayCast2D" parent="." index="3"]
+
+position = Vector2( 0, -6 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 50, 0 )
 collision_mask = 1
 
-[node name="Body" parent="Pivot" index="0"]
+[node name="RightCast" type="RayCast2D" parent="." index="4"]
+
+position = Vector2( 0, 4 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 50, 0 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="Body" parent="Pivot" index="1"]
 
 texture = ExtResource( 3 )
 
