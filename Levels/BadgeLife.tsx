@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="BL_TestTS" tilewidth="16" tileheight="16" tilecount="1484" columns="28">
- <image source="BFT - Legend Of Pocket Monsters Tileset.png" width="448" height="848"/>
+<tileset name="BadgeLifeTS" tilewidth="16" tileheight="16" tilecount="1484" columns="28">
+ <image source="../ArtSketeches/BFT - Legend Of Pocket Monsters Tileset.png" width="448" height="848"/>
  <terraintypes>
   <terrain name="ConferenceFloor" tile="1085"/>
  </terraintypes>

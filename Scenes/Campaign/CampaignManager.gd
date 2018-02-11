@@ -20,12 +20,22 @@ func init_character_area():
 		CharacterArea = YSort.new()
 		$Map.get_child(0).add_child(CharacterArea)
 		var player = load("res://Scenes/Character/Player/Player.tscn").instance()
+		if $Map.get_child(0).get_node("Objects/SpawnPoint").has_meta("face_dir"):
+			match $Map.get_child(0).get_node("Objects/SpawnPoint").get_meta("face_dir"):
+				"left":
+					player.set_face_dir(player.FACE_LEFT)
+				"right":
+					player.set_face_dir(player.FACE_RIGHT)
+				"up":
+					player.set_face_dir(player.FACE_UP)
+				"down":
+					player.set_face_dir(player.FACE_DOWN)
 		CharacterArea.add_child(player)
+		player.position = spawn_pos
 		var camera = Camera2D.new()
 		player.add_child(camera)
 		camera.set("current", true)
 		camera.set("zoom", Vector2(0.5, 0.5))
-		player.position = spawn_pos
 
 func load_npcs():
 	for obj in $Map.get_child(0).get_node("Objects").get_children():

@@ -7,7 +7,7 @@ var game_state = null
 
 var current_chapter = "1"
 var chapters = { "1": { "title":  "First Convention - PrimeCon",
-						"map": "res://ArtSketeches/BL_TestMap.tmx"
+						"map": "res://Levels/PrimeCon.tmx"
 						}
 				}
 

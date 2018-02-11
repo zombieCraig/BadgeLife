@@ -7,7 +7,7 @@
 [node name="Player" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-DEBUG = true
+DEBUG = false
 
 [node name="LeftCast" type="RayCast2D" parent="." index="2"]
 
