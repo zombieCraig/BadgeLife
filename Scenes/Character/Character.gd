@@ -31,6 +31,8 @@ var velocity = Vector2()
 var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 
+export var npc_name = "" # Character's name
+
 # States
 #  BUSY - Generically busy, won't move
 #  IDLE - Idle, bored, will move around

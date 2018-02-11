@@ -1,19 +1,10 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+const NEW_GAME_SCENE = "res://Scenes/Campaign/CampaignManager.tscn"
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
+	global.game_state = global.TITLE
 
 func _on_Start_pressed():
-	global.change_scene("res://Scenes/Map/Map.tscn")
+	global.game_state = global.NEW_GAME
+	global.change_scene(NEW_GAME_SCENE)

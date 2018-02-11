@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="NPC" color="#75507b">
+  <property name="doesnt_move" type="bool" default="false"/>
+  <property name="face_dir" type="string"/>
+  <property name="msg" type="string"/>
+  <property name="npc_name" type="string"/>
+ </objecttype>
+</objecttypes>

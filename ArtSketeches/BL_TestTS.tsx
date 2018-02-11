@@ -253,6 +253,7 @@
    <object id="1" x="11" y="0" width="5" height="16"/>
   </objectgroup>
  </tile>
+ <tile id="1117" type="NPC"/>
  <tile id="1139">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="16"/>

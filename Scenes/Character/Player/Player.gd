@@ -80,3 +80,10 @@ func _physics_process(delta):
 			var obj = get_collider()
 			if obj.has_method("interact"):
 				obj.interact()
+
+func _ready():
+	guile = global.player["guile"]
+	mental = global.player["mental"]
+	power = global.player["power"]
+	if global.player.has("last_save_pos"):
+		position = global.player["last_save_pos"]

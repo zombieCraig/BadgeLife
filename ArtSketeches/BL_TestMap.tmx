@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2018.01.23" orientation="orthogonal" renderorder="right-down" width="120" height="80" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="120" height="80" tilewidth="16" tileheight="16" infinite="0" nextobjectid="11">
  <tileset firstgid="1" source="BL_TestTS.tsx"/>
  <layer name="Tile Layer 1" width="120" height="80">
   <data encoding="csv">
@@ -85,4 +85,21 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup name="Objects">
+  <object id="4" name="SpawnPoint" type="area" x="848" y="464">
+   <point/>
+  </object>
+  <object id="6" gid="1118" x="1088" y="336" width="16" height="16"/>
+  <object id="7" gid="1118" x="1152" y="352" width="16" height="16"/>
+  <object id="8" gid="1118" x="1184" y="384" width="16" height="16"/>
+  <object id="9" gid="1118" x="1184" y="448" width="16" height="16"/>
+  <object id="10" gid="1118" x="976" y="448" width="16" height="16">
+   <properties>
+    <property name="doesnt_move" type="bool" value="true"/>
+    <property name="face_dir" value="left"/>
+    <property name="msg" value="Welcome to the lamest con ... EVER"/>
+    <property name="npc_name" value="Harry"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

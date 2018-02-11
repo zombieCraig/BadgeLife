@@ -3,6 +3,9 @@ extends NinePatchRect
 export var animation_speed = 0.3
 var animate = true
 
+# Used to keep a cord during resize
+enum { TACT_TOP, TACT_BOTTOM, TACT_LEFT, TACT_RIGHT }
+
 var panel_size = Vector2(162, 66)
 
 # If the panel is animating (on show) set to true

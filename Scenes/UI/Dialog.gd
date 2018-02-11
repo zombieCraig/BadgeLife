@@ -10,6 +10,7 @@ var buffer_complete = false
 var buf_index = 0
 var buffer_beginning = true
 var buffer_paused = false
+var orig_loc = Vector2()
 
 # A toast message is a short message with input disabled.  It is displayed for a
 # short time then hides.  Unlick set_text this will also animate the show and hide
@@ -26,6 +27,15 @@ func toast_msg(msg, timeout=1.0):
 func parse_buf():
 	buf = buf.replace("\n", "\n ") # Add a space for 'pause' parsing
 	buf = buf.replace("$name", global.player["name"])
+
+# Resizes the panel box.
+func resize(new_size, tact_loc = TACT_TOP):
+	set("rect_size", new_size)
+	var diff_size = panel_size - get("rect_size")
+	panel_size = get("rect_size")  # Update panel size to the new 'normal' expanded size
+	if tact_loc == TACT_BOTTOM:
+		set("rect_position", Vector2(orig_loc.x + (diff_size.x / 2), orig_loc.y +  diff_size.y))
+		orig_loc = get("rect_position") # Set new location as standard
 
 # Calculate how many lines will fit in our panel
 func calc_max_lines():
@@ -149,6 +159,7 @@ func _process(delta):
 
 func _ready():
 	reset()
+	orig_loc = get("rect_position")
 
 func _on_Timer_timeout():
 	if visible:

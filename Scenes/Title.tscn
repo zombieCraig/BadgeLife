@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/LibreBarcode39Text-Regular.ttf" type="DynamicFontData" id=2]
@@ -19,6 +19,30 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Title" type="Node2D"]
 
@@ -62,9 +86,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 353.0
-margin_top = 234.0
+margin_top = 177.0
 margin_right = 671.0
-margin_bottom = 362.0
+margin_bottom = 419.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -117,7 +141,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 79.0
 margin_right = 318.0
-margin_bottom = 128.0
+margin_bottom = 242.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -126,7 +150,7 @@ size_flags_vertical = 1
 custom_constants/margin_top = 15
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Start" type="Button" parent="CenterContainer/ViewportContainer/MarginContainer2" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ViewportContainer/MarginContainer2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -135,7 +159,22 @@ anchor_bottom = 0.0
 margin_left = 8.0
 margin_top = 15.0
 margin_right = 318.0
-margin_bottom = 49.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="NewGameBtn" type="Button" parent="CenterContainer/ViewportContainer/MarginContainer2/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 310.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -147,11 +186,86 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Start"
+text = "New Game"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[connection signal="pressed" from="CenterContainer/ViewportContainer/MarginContainer2/Start" to="." method="_on_Start_pressed"]
+[node name="ContinueGameBtn" type="Button" parent="CenterContainer/ViewportContainer/MarginContainer2/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 38.0
+margin_right = 310.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Continue Game"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="OptionBtn" type="Button" parent="CenterContainer/ViewportContainer/MarginContainer2/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 76.0
+margin_right = 310.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Options"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="QuitBtn" type="Button" parent="CenterContainer/ViewportContainer/MarginContainer2/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 114.0
+margin_right = 310.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="pressed" from="CenterContainer/ViewportContainer/MarginContainer2/VBoxContainer/NewGameBtn" to="." method="_on_Start_pressed"]
 
 

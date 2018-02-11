@@ -3,7 +3,8 @@ extends "res://Scenes/Character/Character.gd"
 const IDLE_WALK_TIME = 0.4
 
 export var random_mob = false
-export var idle_movement = false
+export var idle_movement = true
+export var msg = "" # Message to say if asked something
 var busy = false # If the NPC is busy with an action (like talking)
 var walking = false
 var walk_direction = Vector2()
@@ -82,8 +83,12 @@ func interact():
 	if $Dialog.visible:
 		return
 	busy = true
-	var msg = random_speech[randi() % random_speech.size() ]
-	$Dialog.set_text(msg)
+	if msg.length() > 0:
+		$Dialog.resize(Vector2(230, 150), $Dialog.TACT_BOTTOM)
+		$Dialog.set_text(msg)
+	else:
+		var random_msg = random_speech[randi() % random_speech.size() ]
+		$Dialog.set_text(random_msg)
 	$Dialog.panel_show()
 	global.block_player_input = true
 
@@ -96,7 +101,6 @@ func _ready():
 		randomize()
 		randomize_look()
 		face_random_dir()
-		idle_movement = true
 	if idle_movement:
 		set_idle_timer()
 		add_to_group('bumpable')

@@ -8,9 +8,6 @@ signal right_pressed
 const ITEM_ENTRY_PADDING = 10
 const ARROW_IMAGE = "res://ArtSketeches/MenuArrow.png"
 
-# Used to keep a cord during resize
-enum { TACT_TOP, TACT_BOTTOM, TACT_LEFT, TACT_RIGHT }
-
 var disable_input = false
 var total_items = 0
 var focused_item = -1
