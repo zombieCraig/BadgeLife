@@ -31,6 +31,7 @@ var velocity = Vector2()
 var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 
+export var DEBUG = false
 export var npc_name = "" # Character's name
 
 # States
@@ -205,9 +206,22 @@ func bump_obj(obj):
 func bump_toast():
 	$Dialog.toast_msg(bump_messages[randi() % bump_messages.size() ])
 
+# Empty methods for other to use
+func enable_raycasting():
+	pass
+
+func disable_raycasting():
+	pass
+
 func _ready():
 	_change_state(IDLE)
 	set_face_dir(face_dir)
+	if DEBUG:
+		$Debug.show()
+		if npc_name.length() > 0:
+			$Debug/Name.text = npc_name
+		else:
+			$Debug/Name.text = str(self)
 
 func play_walk_animation():
 	if input_direction == last_move_direction:
@@ -229,6 +243,7 @@ func _change_state(new_state):
 		BUSY:
 			speed = 0
 			$AnimationPlayer.stop()
+			disable_raycasting()
 		IDLE:
 			input_direction = Vector2()
 			speed = 0
@@ -243,6 +258,7 @@ func _change_state(new_state):
 				$Pivot/Body.frame == FRAME_DOWN
 			last_move_direction = Vector2()
 		MOVE:
+			enable_raycasting()
 			play_walk_animation()
 			last_move_direction = input_direction
 		BUMP:

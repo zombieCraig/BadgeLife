@@ -15,6 +15,7 @@ sort_enabled = true
 [node name="Player" parent="BL_TestMap/YSort" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 826.37, 461.373 )
+DEBUG = true
 
 [node name="Camera2D" type="Camera2D" parent="BL_TestMap/YSort/Player" index="3"]
 
@@ -45,24 +46,28 @@ editor_draw_drag_margin = false
 [node name="NPC" parent="BL_TestMap/YSort" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 1168.97, 448.952 )
+DEBUG = true
 random_mob = true
 idle_movement = true
 
 [node name="NPC2" parent="BL_TestMap/YSort" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 1114.68, 322.438 )
+DEBUG = true
 random_mob = true
 idle_movement = true
 
 [node name="NPC3" parent="BL_TestMap/YSort" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 1215.51, 355.679 )
+DEBUG = true
 random_mob = true
 idle_movement = true
 
 [node name="NPC4" parent="BL_TestMap/YSort" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 991.687, 442.106 )
+DEBUG = true
 face_dir = 0
 idle_movement = true
 

@@ -62,21 +62,70 @@ func face_random_dir():
 	else:
 		last_move_direction = Vector2(0, 1)
 
+# Checks area next to NPC, returns vectors where something is NOT present
+func check_surroundings():
+	var open_area = []
+	enable_raycasting()
+	$RayCast2D.set("cast_to", Vector2(0, -50)) # UP
+	$RayCast2D.force_raycast_update()
+	if not $RayCast2D.is_colliding():
+		open_area.append(Vector2(0,-1))
+	$RayCast2D.set("cast_to", Vector2(0, 50)) # DOWN
+	$RayCast2D.force_raycast_update()
+	if not $RayCast2D.is_colliding():
+		open_area.append(Vector2(0,1))
+	$RayCast2D.set("cast_to", Vector2(-50, 0)) # LEFT
+	$RayCast2D.force_raycast_update()
+	if not $RayCast2D.is_colliding():
+		open_area.append(Vector2(-1,0))
+	$RayCast2D.set("cast_to", Vector2(50, 0)) # RIGHT
+	$RayCast2D.force_raycast_update()
+	if not $RayCast2D.is_colliding():
+		open_area.append(Vector2(1,0))
+	disable_raycasting()
+	return open_area
+
 func walk(walk_time):
 	max_speed = MAX_WALK_SPEED
 	walking = true
-	var dir = randi() % 4
-	if dir == 0:
-		walk_direction = Vector2(-1, 0)
-	elif dir == 1:
-		walk_direction = Vector2(1, 0)
-	elif dir == 2:
-		walk_direction = Vector2(0, -1)
-	else:
-		walk_direction = Vector2(0, 1)
+	var open_walk_directions = check_surroundings()
+	if open_walk_directions.size() == 0:
+		return
+	walk_direction = open_walk_directions[randi() % open_walk_directions.size()]
 	$WalkTimer.set("wait_time", walk_time)
 	$WalkTimer.start()
 	input_direction = walk_direction
+
+# Faces the player
+func face_player():
+	if has_node("../Player/Pivot/Body"):
+		var player_facing = get_node("../Player/Pivot/Body").frame
+		match player_facing:
+			FRAME_LEFT:
+				set_face_dir(FACE_RIGHT)
+			FRAME_RIGHT:
+				set_face_dir(FACE_LEFT)
+			FRAME_UP:
+				set_face_dir(FACE_DOWN)
+			FRAME_DOWN:
+				set_face_dir(FACE_UP)
+
+func enable_raycasting():
+	$RayCast2D.set("enabled", true)
+
+func disable_raycasting():
+	$RayCast2D.set("enabled", false)
+
+# Syncs raycast to facing direction
+func set_raycast():
+	if last_move_direction.y == -1:
+		$RayCast2D.set("cast_to", Vector2(0, -50))
+	elif last_move_direction.y == 1:
+		$RayCast2D.set("cast_to", Vector2(0, 50))
+	elif last_move_direction.x == -1:
+		$RayCast2D.set("cast_to", Vector2(-50, 0))
+	elif last_move_direction.x == 1:
+		$RayCast2D.set("cast_to", Vector2(50, 0))
 
 # Function for interacting with this NPC
 func interact():
@@ -90,6 +139,7 @@ func interact():
 		var random_msg = random_speech[randi() % random_speech.size() ]
 		$Dialog.set_text(random_msg)
 	$Dialog.panel_show()
+	face_player()
 	global.block_player_input = true
 
 func set_idle_timer():

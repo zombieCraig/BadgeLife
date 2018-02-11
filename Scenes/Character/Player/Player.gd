@@ -1,5 +1,15 @@
 extends "res://Scenes/Character/Character.gd"
 
+func enable_raycasting():
+	$CenterCast.set("enabled", true)
+	$LeftCast.set("enabled", true)
+	$RightCast.set("enabled", true)
+
+func disable_raycasting():
+	$CenterCast.set("enabled", false)
+	$LeftCast.set("enabled", false)
+	$RightCast.set("enabled", false)
+
 # Rotates the raycast2d when we turn
 func set_raycast():
 	if input_direction.y == -1: # DOWN
