@@ -121,7 +121,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Character" type="KinematicBody2D"]
+[node name="Character" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.5, 0.5 )
 input_pickable = false
@@ -153,16 +153,16 @@ blend_times = [  ]
 position = Vector2( 0, -4 )
 shape = SubResource( 6 )
 
-[node name="Pivot" type="Position2D" parent="." index="2"]
-
-[node name="Shadow" type="Sprite" parent="Pivot" index="0"]
+[node name="Shadow" type="Sprite" parent="." index="2"]
 
 modulate = Color( 1, 1, 1, 0.265176 )
 position = Vector2( 0, 6 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Body" type="Sprite" parent="Pivot" index="1"]
+[node name="Pivot" type="Position2D" parent="." index="3"]
+
+[node name="Body" type="Sprite" parent="Pivot" index="0"]
 
 position = Vector2( 0, -22 )
 texture = ExtResource( 3 )
@@ -204,7 +204,7 @@ hframes = 13
 frame = 143
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Dialog" parent="." index="3" instance=ExtResource( 8 )]
+[node name="Dialog" parent="." index="4" instance=ExtResource( 8 )]
 
 visible = false
 margin_left = -92.0
@@ -212,14 +212,23 @@ margin_top = -110.0
 margin_right = 94.0
 margin_bottom = -59.0
 
-[node name="Timer" type="Timer" parent="." index="4"]
+[node name="Timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="Debug" type="Node2D" parent="." index="5"]
+[node name="Tween" type="Tween" parent="." index="6"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Debug" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 visible = false

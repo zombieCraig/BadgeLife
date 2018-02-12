@@ -27,6 +27,7 @@ const FEET_PATH = "Feet/"
 var speed = 0.0
 var max_speed = 0.0
 var velocity = Vector2()
+var height = 0.0 setget set_height
 
 var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
@@ -237,6 +238,11 @@ func play_walk_animation():
 		elif input_direction.y == -1:
 			$AnimationPlayer.play('walk_up')
 
+func animate_bump_height(progress):
+	self.height = - pow(sin(progress * PI), 0.4) * MAX_BUMP_HEIGHT
+	var shadow_scale = (-sin(progress * PI)) * 0.3 + 1
+	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
+
 # Handles state changes
 func _change_state(new_state):
 	match new_state:
@@ -265,6 +271,8 @@ func _change_state(new_state):
 			$AnimationPlayer.stop()
 			max_speed = BUMP_SPEED
 			input_direction = bump_direction
+			$Tween.interpolate_method(self, 'animate_bump_height', 0, 1, BUMP_DURATION,Tween.TRANS_LINEAR,Tween.EASE_IN)
+			$Tween.start()
 			$Timer.set("wait_time", BUMP_DURATION)
 			$Timer.start()
 	state = new_state
@@ -306,3 +314,7 @@ func _on_Body_frame_changed():
 
 func _on_Timer_timeout():
 	_change_state(IDLE)
+
+func set_height(value):
+	height = value
+	$Pivot.position.y = height
