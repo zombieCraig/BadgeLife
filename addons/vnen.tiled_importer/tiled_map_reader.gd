@@ -603,6 +603,7 @@ func build_tileset_for_scene(tilesets, source_path, options):
 						if not gid in tile_meta: tile_meta[gid] = {}
 						tile_meta[gid][property] = ts.tiles[rel_id][property]
 
+
 			gid += 1
 			column += 1
 			i += 1

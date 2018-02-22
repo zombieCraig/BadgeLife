@@ -147,9 +147,9 @@ func _input(event):
 					accept_event()
 			if buffer_complete and not panel_animating:
 				if Input.is_action_pressed("interact"):
+					panel_hide()
 					accept_event()
 					emit_signal("dialog_completed")
-					panel_hide()
 
 func _process(delta):
 	if not buffer_complete:

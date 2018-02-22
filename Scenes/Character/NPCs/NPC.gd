@@ -28,15 +28,12 @@ func _random_hair():
 	else:
 		base_hair = hair_styles[randi() % hair_styles.size() ]
 		base_hair_color = Color(randf(), randf(), randf() )
-		$Pivot/Body/Hair.set("self_modulate", base_hair_color)
 
 func _random_legwear():
 	base_legwear_color = standard_colors[randi() % standard_colors.size() ]
-	$Pivot/Body/Legs.set("modulate", base_legwear_color)
 
 func _random_torsowear():
 	base_torsowear_color = standard_colors[randi() % standard_colors.size() ]
-	$Pivot/Body/Torso.set("modulate", base_torsowear_color)
 
 func _random_footwear():
 	if randi() % 25 == 0:
@@ -154,6 +151,10 @@ func _ready():
 	if idle_movement:
 		set_idle_timer()
 		add_to_group('bumpable')
+
+# Dynamically linked by trigger areas
+func _triggered(triggered_by, trigger_obj):
+	pass
 
 func _on_IdleTimer_timeout():
 	if not busy:

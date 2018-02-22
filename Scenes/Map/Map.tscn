@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ArtSketeches/BL_TestMap.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Character/NPCs/NPC.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Character/NPCs/n30n/n30n.tscn" type="PackedScene" id=4]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Navigation2D"]
 
 [node name="BL_TestMap" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -46,24 +47,34 @@ editor_draw_drag_margin = false
 
 position = Vector2( 1168.97, 448.952 )
 random_mob = true
-idle_movement = true
 
 [node name="NPC2" parent="BL_TestMap/YSort" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 1114.68, 322.438 )
 random_mob = true
-idle_movement = true
 
 [node name="NPC3" parent="BL_TestMap/YSort" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 1215.51, 355.679 )
 random_mob = true
-idle_movement = true
 
 [node name="NPC4" parent="BL_TestMap/YSort" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 991.687, 442.106 )
 face_dir = 0
-idle_movement = true
+
+[node name="n30n" parent="BL_TestMap/YSort" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 940, 460 )
+scale = Vector2( 0.5, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+DEBUG = false
+npc_name = ""
+real_name = ""
+face_dir = null
 
 

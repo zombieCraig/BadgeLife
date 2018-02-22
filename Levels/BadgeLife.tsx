@@ -164,129 +164,213 @@
    <object id="1" x="0.181818" y="0.363636" width="15.8182" height="15.2727"/>
   </objectgroup>
  </tile>
- <tile id="998" terrain="0,0,0,0"/>
- <tile id="1026" terrain="0,0,0,0"/>
+ <tile id="998" terrain="0,0,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="navigation" x="0" y="0">
+    <polygon points="0,0 16,0 16,16 0,16"/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="1026" terrain="0,0,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="navigation" x="0" y="0">
+    <polygon points="0,0 16,0 16,16 0,16"/>
+   </object>
+  </objectgroup>
+ </tile>
  <tile id="1027" terrain=",,,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="16" height="5"/>
    <object id="2" x="0" y="0" width="5" height="16"/>
+   <object id="3" type="navigation" x="5" y="5" width="11" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1028" terrain=",,0,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="5" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1029" terrain=",,0,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="5" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1030" terrain=",,0,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="5" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1031" terrain=",,0,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="16" height="5"/>
    <object id="2" x="11" y="0" width="5" height="16"/>
+   <object id="3" type="navigation" x="0" y="5" width="11" height="11"/>
   </objectgroup>
  </tile>
- <tile id="1054" terrain="0,0,0,0"/>
+ <tile id="1054" terrain="0,0,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="navigation" x="0" y="0">
+    <polygon points="0,0 16,0 16,16 0,16"/>
+   </object>
+  </objectgroup>
+ </tile>
  <tile id="1055" terrain=",0,,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="16"/>
+   <object id="2" type="navigation" x="5" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1056" terrain="0,0,0,">
   <objectgroup draworder="index">
    <object id="1" x="11" y="11" width="5" height="5"/>
+   <object id="2" type="navigation" x="0" y="0" width="11" height="16"/>
+   <object id="3" type="navigation" x="11" y="0" width="5" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1057" terrain="0,0,,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="11" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="0" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1058" terrain="0,0,,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="11" width="5" height="5"/>
+   <object id="2" type="navigation" x="0" y="0" width="5" height="11"/>
+   <object id="3" type="navigation" x="5" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1059" terrain="0,,0,">
   <objectgroup draworder="index">
    <object id="1" x="11" y="0" width="5" height="16"/>
+   <object id="2" type="navigation" x="0" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1083" terrain=",0,,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="16"/>
+   <object id="3" type="navigation" x="5" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1084" terrain="0,,0,">
   <objectgroup draworder="index">
    <object id="1" x="11" y="0" width="5" height="16"/>
+   <object id="2" type="navigation" x="0" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
- <tile id="1085" terrain="0,0,0,0"/>
+ <tile id="1085" terrain="0,0,0,0">
+  <objectgroup draworder="index">
+   <object id="2" type="navigation" x="0" y="0">
+    <polygon points="0,0 16,0 16,16 0,16 0,0"/>
+   </object>
+  </objectgroup>
+ </tile>
  <tile id="1086" terrain=",0,,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="16"/>
+   <object id="2" type="navigation" x="5" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1087" terrain="0,,0,">
   <objectgroup draworder="index">
    <object id="1" x="11" y="0" width="5" height="16"/>
+   <object id="2" type="navigation" x="0" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1111" terrain=",0,,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="16"/>
+   <object id="3" type="navigation" x="5" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
- <tile id="1112" terrain="0,,0,0"/>
+ <tile id="1112" terrain="0,,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="navigation" x="0" y="0" width="11" height="16"/>
+   <object id="2" type="navigation" x="11" y="5" width="5" height="11"/>
+   <object id="3" x="11" y="0" width="5" height="5"/>
+  </objectgroup>
+ </tile>
  <tile id="1113" terrain=",,0,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="5" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1114" terrain=",0,0,0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="5"/>
+   <object id="2" type="navigation" x="0" y="5" width="5" height="11"/>
+   <object id="3" type="navigation" x="5" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1115" terrain="0,,0,">
   <objectgroup draworder="index">
    <object id="1" x="11" y="0" width="5" height="16"/>
+   <object id="2" type="navigation" x="0" y="0" width="11" height="16"/>
   </objectgroup>
  </tile>
  <tile id="1117" type="NPC"/>
+ <tile id="1118" type="SpecialNPC"/>
  <tile id="1139" terrain=",0,,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="0" width="5" height="16"/>
    <object id="2" x="0" y="11" width="16" height="5"/>
+   <object id="3" type="navigation" x="5" y="0" width="11" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1140" terrain="0,0,,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="11" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="0" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1141" terrain="0,0,,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="11" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="0" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1142" terrain="0,0,,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="11" width="16" height="5"/>
+   <object id="2" type="navigation" x="0" y="0" width="16" height="11"/>
   </objectgroup>
  </tile>
  <tile id="1143" terrain="0,,,">
   <objectgroup draworder="index">
    <object id="1" x="0" y="11" width="16" height="5"/>
    <object id="2" x="11" y="0" width="5" height="16"/>
+   <object id="3" type="navigation" x="0" y="0" width="11" height="11"/>
+  </objectgroup>
+ </tile>
+ <tile id="1167">
+  <objectgroup draworder="index">
+   <object id="1" x="0" y="8" width="16" height="8">
+    <ellipse/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="1168">
+  <objectgroup draworder="index">
+   <object id="1" x="0" y="8" width="16" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="1196">
+  <objectgroup draworder="index">
+   <object id="1" x="0" y="0" width="16" height="4"/>
+  </objectgroup>
+ </tile>
+ <tile id="1223">
+  <objectgroup draworder="index">
+   <object id="2" x="0" y="4" width="16" height="12"/>
+  </objectgroup>
+ </tile>
+ <tile id="1224">
+  <objectgroup draworder="index">
+   <object id="1" x="0" y="4" width="16" height="12"/>
   </objectgroup>
  </tile>
 </tileset>

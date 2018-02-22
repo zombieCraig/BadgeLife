@@ -121,7 +121,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Character" type="KinematicBody2D" index="0"]
+[node name="Character" type="KinematicBody2D"]
 
 scale = Vector2( 0.5, 0.5 )
 input_pickable = false
@@ -132,6 +132,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 DEBUG = false
 npc_name = ""
+real_name = ""
 face_dir = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]

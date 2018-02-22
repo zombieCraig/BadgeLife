@@ -34,6 +34,7 @@ var last_move_direction = Vector2(1, 0)
 
 export var DEBUG = false
 export var npc_name = "" # Character's name
+export var real_name = "" # Character's real name
 
 # States
 #  BUSY - Generically busy, won't move
@@ -133,20 +134,28 @@ func update_body():
 	if base_hair:
 		$Pivot/Body/Hair.texture = load(BASE_CHAR_IMG_PATH + HAIR_PATH + base_hair + ".png")
 		$Pivot/Body/Hair.show()
+		if base_hair_color:
+			$Pivot/Body/Hair.set("modulate", base_hair_color)
 	else:
 		$Pivot/Body/Hair.hide()
 	if base_legwear:
 		$Pivot/Body/Legs.show()
+		if base_legwear_color:
+			$Pivot/Body/Legs.set("modulate", base_legwear_color)
 	else:
 		$Pivot/Body/Legs.hide()
 	if base_torsowear:
 		$Pivot/Body/Torso.texture = load(BASE_CHAR_IMG_PATH + TORSO_PATH + base_gender + "_" + base_torsowear + ".png")
 		$Pivot/Body/Torso.show()
+		if base_torsowear_color:
+			$Pivot/Body/Torso.set("modulate", base_torsowear_color)
 	else:
 		$Pivot/Body/Torso.hide()
 	if base_footwear:
 		$Pivot/Body/Feet.texture = load(BASE_CHAR_IMG_PATH + FEET_PATH + base_gender + "_" + base_footwear + ".png")
 		$Pivot/Body/Feet.show()
+		if base_footwear_color:
+			$Pivot/Body/Feet.set("modulate", base_footwear_color)
 	else:
 		$Pivot/Body/Feet.hide()
 

@@ -7,7 +7,6 @@
 [node name="Player" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-DEBUG = false
 
 [node name="LeftCast" type="RayCast2D" parent="." index="2"]
 
@@ -35,7 +34,7 @@ cast_to = Vector2( 50, 0 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Body" parent="Pivot" index="1"]
+[node name="Body" parent="Pivot" index="0"]
 
 texture = ExtResource( 3 )
 

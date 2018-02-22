@@ -6,4 +6,7 @@
   <property name="msg" type="string"/>
   <property name="npc_name" type="string"/>
  </objecttype>
+ <objecttype name="SpecialNPC" color="#cc0000">
+  <property name="npc_name" type="string"/>
+ </objecttype>
 </objecttypes>

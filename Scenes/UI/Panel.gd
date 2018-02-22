@@ -13,6 +13,10 @@ var panel_animating = false
 var closing = false
 
 func panel_show():
+	# If panel was closing, interrupt and re-open
+	if $Tween.is_active():
+		$Tween.stop_all()
+		$Tween.remove_all()
 	$Tween.interpolate_property(self, "rect_size", Vector2(panel_size.x, 20), panel_size, animation_speed, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
 	$Tween.start()
 	show()
@@ -20,6 +24,9 @@ func panel_show():
 	closing = false
 
 func panel_hide():
+	if $Tween.is_active():
+		$Tween.stop_all()
+		$Tween.remove_all()
 	$Tween.interpolate_property(self, "rect_size", panel_size, Vector2(panel_size.x, 20), animation_speed, Tween.TRANS_ELASTIC, Tween.EASE_IN)
 	$Tween.start()
 	panel_animating = true
