@@ -130,6 +130,8 @@ func load_special_npcs():
 					CharacterArea.add_child(special_npc)
 					special_npc.position = obj.position
 					obj.visible = false
+					if obj.has_meta("msg"):
+						special_npc.msg = obj.get_meta("msg")
 				else:
 					print("Error: Special npc, " + npc + ", not found at " + path)
 

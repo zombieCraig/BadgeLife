@@ -23,7 +23,6 @@ func init_look():
 	_random_skintone()
 	base_torsowear_color = Color(0.92, 0.06, 0.06)
 	base_footwear_color = Color(0.59,0.87,0.86)
-	npc_name = "n30n"
 	update_body()
 
 func give_primecon_badge():
@@ -95,6 +94,8 @@ func _ready():
 	# General interact messsage
 	msg = "Hey $name, I hope to see you at more conferences soon"
 	init_look()
+	idle_movement = false
+	$IdleTimer.stop()
 	if has_node("/root/CampaignManager"):
 		Manager = get_node("/root/CampaignManager")
 	else:
@@ -112,3 +113,8 @@ func _on_Dialog_dialog_completed():
 		TRIG_BYE_MSG:
 			change_trigger_state(TRIG_IDLE)
 			Manager.cutscene_stop()
+			idle_movement = true
+			set_idle_timer()
+		_:
+			global.block_player_input = false
+			busy = false
