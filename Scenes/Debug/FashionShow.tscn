@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Debug/FashionShow.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Character/Character.tscn" type="PackedScene" id=2]
+
+[node name="FashionShow" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Character" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 40, 37 )
+
+[node name="Character2" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 190.517, 147.517 )
+scale = Vector2( 2.39115, 2.39115 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

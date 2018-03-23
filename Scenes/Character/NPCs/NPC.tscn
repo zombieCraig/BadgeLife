@@ -54,6 +54,14 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="Dialog" parent="." index="7"]
+
+rect_clip_content = false
+
+[node name="Name" parent="Debug" index="0"]
+
+rect_clip_content = false
+
 [connection signal="timeout" from="IdleTimer" to="." method="_on_IdleTimer_timeout"]
 
 [connection signal="timeout" from="WalkTimer" to="." method="_on_WalkTimer_timeout"]

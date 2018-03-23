@@ -1,5 +1,7 @@
 extends "res://Scenes/Character/Character.gd"
 
+var items = []
+
 func enable_raycasting():
 	$CenterCast.set("enabled", true)
 	$LeftCast.set("enabled", true)
@@ -58,6 +60,12 @@ func record_colliders():
 	right_collider = $RightCast.is_colliding()
 	center_collider = $CenterCast.is_colliding()
 
+# Recieve an item via a Hash.  { name: "", desc: "" }
+func recv_item(item):
+	$ItemDialog.set_text("You received a " + item["name"] + "!!")
+	$ItemDialog.panel_show()
+	items.append(item)
+
 func _physics_process(delta):
 	input_direction = Vector2()
 	
@@ -97,3 +105,6 @@ func _ready():
 	power = global.player["power"]
 	if global.player.has("last_save_pos"):
 		position = global.player["last_save_pos"]
+
+func _on_ItemDialog_dialog_completed():
+	pass # replace with function body

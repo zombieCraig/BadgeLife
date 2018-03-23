@@ -212,6 +212,7 @@ margin_left = -92.0
 margin_top = -110.0
 margin_right = 94.0
 margin_bottom = -59.0
+rect_clip_content = false
 
 [node name="Timer" type="Timer" parent="." index="5"]
 
@@ -245,6 +246,7 @@ margin_top = -55.0
 margin_right = 21.0
 margin_bottom = -41.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

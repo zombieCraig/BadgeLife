@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="120" height="80" tilewidth="16" tileheight="16" infinite="0" nextobjectid="63">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="120" height="80" tilewidth="16" tileheight="16" infinite="0" nextobjectid="70">
  <tileset firstgid="1" source="BadgeLife.tsx"/>
  <layer name="Tile Layer 1" width="120" height="80">
   <data encoding="csv">
@@ -247,6 +247,32 @@
     <property name="msg" value="Welcome to PrimeCon.  Make sure you talk to n30n"/>
     <property name="npc_name" value="goon"/>
    </properties>
+  </object>
+  <object id="63" name="Trigger_training" type="area" x="85" y="177" width="166" height="15">
+   <properties>
+    <property name="goto" value="h0axGoto"/>
+    <property name="runto" value="h0axRunto"/>
+    <property name="trigger_npc" value="h0ax"/>
+   </properties>
+  </object>
+  <object id="64" gid="1119" x="231" y="211" width="16" height="16">
+   <properties>
+    <property name="npc_name" value="h0ax"/>
+   </properties>
+  </object>
+  <object id="65" gid="1119" x="128" y="247" width="16" height="16">
+   <properties>
+    <property name="npc_name" value="mr_s"/>
+   </properties>
+  </object>
+  <object id="67" name="h0axGoto" type="area" x="187" y="203">
+   <point/>
+  </object>
+  <object id="68" name="mr_sGoto" type="area" x="136" y="205">
+   <point/>
+  </object>
+  <object id="69" name="h0axRunto" type="area" x="381" y="245">
+   <point/>
   </object>
  </objectgroup>
 </map>

@@ -43,6 +43,7 @@ func get_npc_by_name(npc_name):
 # Uses the maps navigation area to create simple path from one point to another
 func get_navigation_path(from, to):
 	var p = $Map.get_simple_path(from, to, true)
+	print("DEBUG: get_nav_path =",p)
 	var path = Array(p)
 	path.invert()
 	return path

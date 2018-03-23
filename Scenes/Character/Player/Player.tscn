@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://ArtSketeches/Character/Body/male/dark.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=4]
 
 [node name="Player" instance=ExtResource( 1 )]
 
@@ -46,5 +47,16 @@ modulate = Color( 0.0617523, 0.0944359, 0.222656, 1 )
 
 modulate = Color( 0.0667572, 0.0776886, 0.136719, 1 )
 _sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="ItemDialog" parent="." index="8" instance=ExtResource( 4 )]
+
+visible = false
+margin_left = -242.0
+margin_top = -175.0
+margin_right = 243.0
+margin_bottom = -109.0
+rect_clip_content = false
+
+[connection signal="dialog_completed" from="ItemDialog" to="." method="_on_ItemDialog_dialog_completed"]
 
 
